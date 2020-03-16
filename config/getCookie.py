@@ -29,7 +29,7 @@ def getDrvicesID(session):
             options.add_argument("--headless")
         driver = webdriver.Chrome(executable_path=TickerConfig.CHROME_PATH,chrome_options=options)
         driver.get("https://www.12306.cn/index/index.html")
-        time.sleep(5)
+        time.sleep(2)
         # 如果不这样设置的话需要我们自己在配置文件中设置两个属性。
         for c in driver.get_cookies():
             cookie = dict()

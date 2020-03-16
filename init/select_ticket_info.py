@@ -121,12 +121,13 @@ class select:
             self.login.go_login(result)
 
     def main(self):
-        l = liftTicketInit(self)
-        l.reqLiftTicketInit()
+
+        # l = liftTicketInit(self)
+        # l.reqLiftTicketInit()
 
 
         getDrvicesID(self)
-        '''
+
         self.call_login()
 
         # from forApi import apiUtils
@@ -156,9 +157,6 @@ class select:
             sleep_time_s = TickerConfig.MIN_TIME
             sleep_time_t = TickerConfig.MAX_TIME
 
-        '''
-        sleep_time_s = 0.1
-        sleep_time_t = 0.3
         num = 0
         from_station, to_station = self.station_table(TickerConfig.FROM_STATION, TickerConfig.TO_STATION)
         while 1:

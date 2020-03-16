@@ -9,7 +9,7 @@ TICKET_TYPE = 1
 
 # 出发日期(list) "2018-01-06", "2018-01-07"
 STATION_DATES = [
-    "2020-03-21"
+    "2020-03-22"
 ]
 
 # 填入需要购买的车次(list)，"G1353"
@@ -61,7 +61,8 @@ AUTO_CODE_TYPE = 3
 # 此处设置云打码服务器地址，如果有自建的服务器，可以自行更改
 
 
-HOST = "120.77.154.140:8000"
+# HOST = "120.77.154.140:8000"
+HOST="120.24.62.193:80"
 #HOST="12306.yinaoxiong.cn"
 REQ_URL = "/verify/base64/"
 HTTP_TYPE = "http"
@@ -126,21 +127,24 @@ COOKIE_TYPE = 1
 
 # by sw
 # CHROME_PATH = "/usr/src/app/chromedriver"
-CHROME_PATH = "/Users/mac/envr/chromedriver"
+CHROME_PATH = "/Users/SW/myevn/chromedriver"
 
 
 # 为了docker37 准备的环境变量，windows环境可以不用管这个参数
 CHROME_CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # 如果COOKIE_TYPE=3, 则需配置RAIL_EXPIRATION、RAIL_DEVICEID的值
-RAIL_EXPIRATION = "cSZMoGNlV7bYA8xHUzgtJofP_WZxXx-g3IWCLpxbexHny6RBPrTwzf_r_pSd9kelxmb03PaZUKUOkrN_x1cSN0o4waBOHGc03SiBFrr_KKOD66vBrXusuu2mNaIBFBfM1d2P_flwGjj92SFvXcX1f1S_CUxBAO_l"
-RAIL_DEVICEID = "1581433805085"
+
+# RAIL_EXPIRATION = "cSZMoGNlV7bYA8xHUzgtJofP_WZxXx-g3IWCLpxbexHny6RBPrTwzf_r_pSd9kelxmb03PaZUKUOkrN_x1cSN0o4waBOHGc03SiBFrr_KKOD66vBrXusuu2mNaIBFBfM1d2P_flwGjj92SFvXcX1f1S_CUxBAO_l"
+# RAIL_DEVICEID = "1581433805085"
+
+
 # RAIL_EXPIRATION = "1577034103293"
 # RAIL_DEVICEID = "CDno29Erc_Pf3FSXb4dzq-Op64EhWrsi5yUZKVIKR1MAfYo2qFlCeXD8VkexY7_1qg-ClV-fE8j9jgVlPZxRh3wVc2iqLe_5A8sdr62qZx4B22JPF8lFCjpgTKZ5ODW90HJd5tiQsJ1KR9nOqHRxHj1FT5LEIwfw"
 
 
 # 1=>为一直随机ua,2->只启动的时候随机一次ua
-RANDOM_AGENT = 2
+RANDOM_AGENT = 1
 
 PASSENGER_TICKER_STR = {
     '一等座': 'M',

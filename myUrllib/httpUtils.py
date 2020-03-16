@@ -7,6 +7,7 @@ from time import sleep
 import requests
 from fake_useragent import UserAgent
 import TickerConfig
+import my_fake_useragent as ua
 from agency.agency_tools import proxy
 from config import logger
 
@@ -24,6 +25,10 @@ def _set_header_default():
 
 
 def _set_user_agent():
+
+    user_agent=ua.UserAgent()
+    val="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36"
+    val=user_agent.random()
     # try:
     #     user_agent = UserAgent(verify_ssl=False).random
     #     return user_agent
@@ -31,8 +36,8 @@ def _set_user_agent():
     #     print("请求头设置失败，使用默认请求头")
     #     return 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.' + str(
     #         random.randint(5000, 7000)) + '.0 Safari/537.36'
-    return "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36"
-
+    # print("get random ua "+val)
+    return val
 
 class HTTPClient(object):
 

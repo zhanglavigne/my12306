@@ -3,6 +3,7 @@ from init import select_ticket_info
 import json
 from config import getCookie
 from forApi.apiUtils import *
+from inter.LiftTicketInit import liftTicketInit
 from mymodel import ClientInfo
 from apiRespon import *
 from inter import Query
@@ -32,6 +33,8 @@ def getStationNameInfo():
 def queryTickets():
     respInfo=ClientInfo.userInfo()
     select=getSelect()
+    l = liftTicketInit(select)
+    l.reqLiftTicketInit()
     getCookie.getDrvicesID(select)
     queryJsonStr=request.form.get("queryStr")
     data={}
