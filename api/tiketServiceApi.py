@@ -123,7 +123,14 @@ def login():
     t=threading.Thread(target=cu.sendCheckUser)
     t.setDaemon(True)
     # t.start()
-    return json.dumps(respInfo.__dict__)
+    # i need jsonStr
+    jsonstr={}
+    jsonstr['cookies']=respInfo.cookies
+    jsonstr['rep']=respInfo.rep
+    jsonstr['req_cookies']=respInfo.req_cookies
+    jsonstr['req_args']=respInfo.req_args
+
+    return jsonify(jsonstr)
 
 def getSelect(token=None):
     select=select_ticket_info.select()

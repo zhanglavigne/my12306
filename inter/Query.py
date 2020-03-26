@@ -73,6 +73,9 @@ class query:
             # "train_location"
             # "code"
             "stationTrainCode":ticket_info[3],
+            "start_time":ticket_info[8],
+            "arrival_time":ticket_info[9],
+            "distance_time":ticket_info[10],
             "商务/特等座": ticket_info[32],
             "一等座": ticket_info[31],
             "二等座": ticket_info[30],

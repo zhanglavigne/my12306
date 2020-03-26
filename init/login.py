@@ -55,7 +55,7 @@ class GoLogin:
             sleep(1)
             self.session.httpClint.del_cookies()
 
-    def baseLogin(self, user, passwd):
+    def baseLogin(self, user, passwd, res=None):
         """
         登录过程
         :param user:
@@ -81,8 +81,13 @@ class GoLogin:
         elif 'result_message' in tresult and tresult['result_message']:
             messages = tresult['result_message']
             if messages.find(u"密码输入错误") is not -1:
-                raise UserPasswordException("{0}".format(messages))
-            else:
+                res['msg']=messages
+                res['flag'] = True
+                # raise UserPasswordException("{0}".format(messages))
+            elif messages.find(u"您的手机号码尚未进行核验") is not -1:
+                res['msg'] = messages
+                res['flag']=True
+            else :
                 print(u"登录失败: {0}".format(messages))
                 print(u"尝试重新登陆")
                 return False
@@ -142,8 +147,11 @@ class GoLogin:
                 self.auth()
                 if self.codeCheck():
                     resultMap['status']=200
-                    uamtk = self.baseLogin(user, passwd)
+                    uamtk = self.baseLogin(user, passwd,resultMap)
                     resultMap['uamtk']=uamtk
+                    if resultMap.get("flag"):
+                        resultMap['status']=500
+                        break
                     if uamtk:
                         name=self.getUserName(uamtk)
                         resultMap['username']=name
